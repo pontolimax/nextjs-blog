@@ -6,15 +6,15 @@ import Link from 'next/link'
 import Date from '../components/date'
 import { GetStaticProps } from 'next'
 
-export default function Home({
+export default function Home ({
   allPostsData
 }: {
-  allPostsData: {
+  allPostsData: Array<{
     date: string
     title: string
     id: string
-  }[]
-}) {
+  }>
+}): JSX.Element {
   return (
     <Layout home>
       <Head>
@@ -24,7 +24,7 @@ export default function Home({
         <p>This is my introduction.</p>
         <p>
           (This is a sample website - you’ll be building a site like this in{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
+          <a href='https://nextjs.org/learn'>our Next.js tutorial</a>.)
         </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
@@ -44,7 +44,7 @@ export default function Home({
         </ul>
       </section>
     </Layout>
-  );
+  )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
